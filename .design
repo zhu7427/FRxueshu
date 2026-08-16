@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "id": "page-index",
+      "title": "FR学术 · 首页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1755326340000,
+      "canvasData": { "x": 0, "y": 0, "group": 0 },
+      "devMetadata": {
+        "htmlSrc": "pages/index.html",
+        "interactions": [
+          {
+            "domId": "article-card-human-shrimp",
+            "type": "navigation",
+            "targetPageId": "page-article-human-shrimp",
+            "trigger": "click"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-article-human-shrimp",
+      "title": "人类与虾的关系：一项跨学科考察",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1755326340000,
+      "canvasData": { "x": 480, "y": 0, "group": 0 },
+      "devMetadata": {
+        "htmlSrc": "pages/article-human-shrimp.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "image-001",
+      "title": "机器人助手烛烛头像",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1755326340000,
+      "devMetadata": {
+        "imageSrc": "assets/烛烛.jpg"
+      },
+      "canvasData": { "x": 0, "y": 0 }
+    }
+  ],
+  "config": { "autoLayout": true, "deviceType": "desktop", "projectName": "FR学术报刊" }
+}

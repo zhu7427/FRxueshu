@@ -1,0 +1,109 @@
+{
+  "success": true,
+  "outcome": "passed",
+  "repairable": true,
+  "terminalViolations": [],
+  "terminalBlockingSummary": null,
+  "skillProvenance": {
+    "name": "solo-design",
+    "version": "2026.08.06.19.15.08",
+    "version_source": "skill-release-manifest.json",
+    "runtime_skill_dir": "c:\\Users\\锋\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
+    "recorded_at": null,
+    "expected_version": "2026.08.06.19.15.08",
+    "status": "manifest_fallback",
+    "read_status": "ok",
+    "reason": "runtime-orchestration-summary.json missing skillProvenance; used skill-release-manifest.json"
+  },
+  "operatingMode": "free-explore",
+  "renderBlockingErrorCount": 0,
+  "softWarningCount": 6,
+  "renderBlockingErrors": [],
+  "errorSignatures": [],
+  "softWarnings": [
+    "[html-head-style] article-human-shrimp.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[orchestration-summary] runtime-orchestration-summary.json is missing skillProvenance.name/version/version_source. Version provenance will be reported as observed_unknown by external evaluators.",
+    "[html-quality] colors_and_type.css: free-explore brand CSS must use one primary hue only; forbidden secondary/accent brand variables found (--fr-accent, --fr-accent-foreground). Use --state-success/warning/error/info only for semantic states.",
+    "[html-quality] colors_and_type.css: ordinary/static shadow tokens must keep every shadow alpha <= 0.05; deeper shadows are allowed only for floating-layer tokens such as modal/popover/dropdown/drawer/overlay (--fr-shadow-2: 0 8px 24px -8px rgba(26, 26, 26, 0.14), --fr-shadow-3: 0 24px 60px -20px rgba(26, 26, 26, 0.24)).",
+    "[html-quality] article-human-shrimp.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] index.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states."
+  ],
+  "repairPlanHints": [],
+  "repairActionTable": [],
+  "errorCount": 0,
+  "warningCount": 6,
+  "errors": [],
+  "warnings": [
+    "[html-head-style] article-human-shrimp.html: found 1 custom <style> block(s) in <head>. The <head> is owned by apply-html-head-contract.mjs; move custom styles before </body> or re-run apply-html-head-contract.mjs <css-path> <html-file> --replace-head to relocate them.",
+    "[orchestration-summary] runtime-orchestration-summary.json is missing skillProvenance.name/version/version_source. Version provenance will be reported as observed_unknown by external evaluators.",
+    "[html-quality] colors_and_type.css: free-explore brand CSS must use one primary hue only; forbidden secondary/accent brand variables found (--fr-accent, --fr-accent-foreground). Use --state-success/warning/error/info only for semantic states.",
+    "[html-quality] colors_and_type.css: ordinary/static shadow tokens must keep every shadow alpha <= 0.05; deeper shadows are allowed only for floating-layer tokens such as modal/popover/dropdown/drawer/overlay (--fr-shadow-2: 0 8px 24px -8px rgba(26, 26, 26, 0.14), --fr-shadow-3: 0 24px 60px -20px rgba(26, 26, 26, 0.24)).",
+    "[html-quality] article-human-shrimp.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states.",
+    "[html-quality] index.html: free-explore pages must not use secondary/accent brand variables. Use the single primary hue, neutral tints, or --state-success/warning/error/info for real semantic states."
+  ],
+  "validationRunDisciplineStatus": {
+    "declared": true,
+    "restoreMode": false,
+    "maxFullValidationRuns": 2,
+    "validationHistoryCount": 0,
+    "repairLedgerCount": 0,
+    "softWarningsTriggerRepair": false,
+    "terminalState": null,
+    "nextAction": null,
+    "violations": [],
+    "success": true
+  },
+  "terminalState": null,
+  "nextCheck": {
+    "type": "finish-readiness",
+    "command": "node \"c:\\Users\\锋\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"e:\\哈哈哈\\FR学术\\fr-academic.design\" --check=all",
+    "fullValidationAllowed": false,
+    "reason": "workspace validation passed; run complete finish readiness before final delivery"
+  },
+  "repairBatch": [],
+  "repairContextPacket": {
+    "schema_version": "1.0",
+    "purpose": "small-context repair packet; read this before full validation-report.json",
+    "success": true,
+    "terminalState": null,
+    "skillProvenance": {
+      "name": "solo-design",
+      "version": "2026.08.06.19.15.08",
+      "version_source": "skill-release-manifest.json",
+      "runtime_skill_dir": "c:\\Users\\锋\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
+      "recorded_at": null,
+      "expected_version": "2026.08.06.19.15.08",
+      "status": "manifest_fallback",
+      "read_status": "ok",
+      "reason": "runtime-orchestration-summary.json missing skillProvenance; used skill-release-manifest.json"
+    },
+    "renderBlockingErrorCount": 0,
+    "softWarningCount": 6,
+    "renderBlockingErrors": [],
+    "repairActionTable": [],
+    "nextCheck": {
+      "type": "finish-readiness",
+      "command": "node \"c:\\Users\\锋\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"e:\\哈哈哈\\FR学术\\fr-academic.design\" --check=all",
+      "fullValidationAllowed": false,
+      "reason": "workspace validation passed; run complete finish readiness before final delivery"
+    },
+    "forbidden": [
+      "do not read validator source",
+      "do not rerun full validation when nextCheck.fullValidationAllowed=false",
+      "do not start preview/browser unless user explicitly asks",
+      "do not hand-edit repair ledger fields"
+    ]
+  },
+  "projectFileHashes": {
+    ".design": "b76ca8411f0705fb65b8d7de2ad5582cc15545f9bff3a3c6366dbcbe8fbb6330",
+    "colors_and_type.css": "f0d6b1c9825d673186474f9bcb17556d1dd96cb57f3eeda30382ff59592d2b19",
+    "runtime-orchestration-summary.json": "51e0f73fab3dfd702053a4d66c0fcb2403d8e11d3be0ac32a829d557e23d961e",
+    "pages/article-human-shrimp.html": "734b1f8907e41950b01ea53e5e44a1d2a024f462beb6fbe372e440581ba6bf51",
+    "pages/index.html": "fc3fa6e6cd0122c42b0d3b575e5b30e0a55e0bd7ef9330f6393574709d80e97a",
+    "assets/烛烛.jpg": "490257112332bb270396fb14ad1babe44f315b10532402794572b50fe311e55a"
+  },
+  "designDir": "e:\\哈哈哈\\FR学术\\fr-academic.design",
+  "expectedPages": 2,
+  "requireInteractions": "article-card-human-shrimp:pages/index.html",
+  "checkedAt": "2026-08-16T06:27:33.677Z"
+}

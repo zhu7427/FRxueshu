@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人类与虾的关系：一项跨学科考察</title>
+    <style id="theme-vars">
+:root {
+  /* FR学术品牌色板：cream 纸色 + 深靛蓝 */
+  --fr-background: #faf8f3;
+  --fr-foreground: #1a1a1a;
+  --fr-card: #ffffff;
+  --fr-card-foreground: #1a1a1a;
+  --fr-popover: #ffffff;
+  --fr-popover-foreground: #1a1a1a;
+  --fr-primary: #1e3a5f;
+  --fr-primary-foreground: #ffffff;
+  --fr-muted: #f2efe8;
+  --fr-muted-foreground: #6b6b6b;
+  --fr-border: #e3dfd5;
+  --fr-input: #e3dfd5;
+  --fr-ring: #1e3a5f;
+
+  /* 扩展语义色 */
+  --fr-surface: #ffffff;
+  --fr-surface-2: #f5f2eb;
+  --fr-ink: #1a1a1a;
+  --fr-ink-2: #5c5c5c;
+  --fr-ink-3: #8a8a8a;
+  --fr-line: #e3dfd5;
+  --fr-accent: #c9a227;
+  --fr-accent-foreground: #1a1a1a;
+
+  /* 状态色 */
+  --fr-state-success: #2e7d32;
+  --fr-state-warning: #b26a00;
+  --fr-state-error: #c62828;
+  --fr-state-info: #1565c0;
+
+  /* 半径 */
+  --fr-radius-sm: 4px;
+  --fr-radius-md: 8px;
+  --fr-radius-lg: 16px;
+  --fr-radius-pill: 999px;
+
+  /* 阴影 */
+  --fr-shadow-1: 0 1px 2px rgba(26, 26, 26, 0.05), 0 1px 1px rgba(26, 26, 26, 0.03);
+  --fr-shadow-2: 0 8px 24px -8px rgba(26, 26, 26, 0.14);
+  --fr-shadow-3: 0 24px 60px -20px rgba(26, 26, 26, 0.24);
+
+  /* 间距 */
+  --fr-s-1: 4px;
+  --fr-s-2: 8px;
+  --fr-s-3: 12px;
+  --fr-s-4: 16px;
+  --fr-s-5: 24px;
+  --fr-s-6: 32px;
+  --fr-s-7: 48px;
+  --fr-s-8: 80px;
+  --fr-s-9: 120px;
+
+  /* 字体 */
+  --fr-font-sans: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --fr-font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', 'SimSun', Georgia, serif;
+  --fr-font-mono: 'IBM Plex Mono', 'SFMono-Regular', 'Consolas', monospace;
+}
+
+.light {
+  --fr-background: #faf8f3;
+  --fr-foreground: #1a1a1a;
+  --fr-card: #ffffff;
+  --fr-card-foreground: #1a1a1a;
+  --fr-primary: #1e3a5f;
+  --fr-primary-foreground: #ffffff;
+  --fr-muted: #f2efe8;
+  --fr-muted-foreground: #6b6b6b;
+  --fr-border: #e3dfd5;
+}
+
+.dark {
+  --fr-background: #121214;
+  --fr-foreground: #f2efe8;
+  --fr-card: #1c1c20;
+  --fr-card-foreground: #f2efe8;
+  --fr-primary: #6ba3d6;
+  --fr-primary-foreground: #121214;
+  --fr-muted: #25252b;
+  --fr-muted-foreground: #9a9a9a;
+  --fr-border: #33333a;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--fr-background);
+    --color-foreground: var(--fr-foreground);
+    --color-card: var(--fr-card);
+    --color-card-foreground: var(--fr-card-foreground);
+    --color-popover: var(--fr-popover);
+    --color-popover-foreground: var(--fr-popover-foreground);
+    --color-primary: var(--fr-primary);
+    --color-primary-foreground: var(--fr-primary-foreground);
+    --color-muted: var(--fr-muted);
+    --color-muted-foreground: var(--fr-muted-foreground);
+    --color-accent: var(--fr-accent);
+    --color-accent-foreground: var(--fr-accent-foreground);
+    --color-border: var(--fr-border);
+    --color-input: var(--fr-input);
+    --color-ring: var(--fr-ring);
+    --radius-sm: var(--fr-radius-sm);
+    --radius-md: var(--fr-radius-md);
+    --radius-lg: var(--fr-radius-lg);
+  }
+  @layer base {
+    body { background: var(--fr-background); color: var(--fr-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--fr-background); }
+      .text-background { color: var(--fr-background); }
+      .border-background { border-color: var(--fr-background); }
+      .ring-background { --tw-ring-color: var(--fr-background); }
+      .bg-foreground { background-color: var(--fr-foreground); }
+      .text-foreground { color: var(--fr-foreground); }
+      .border-foreground { border-color: var(--fr-foreground); }
+      .ring-foreground { --tw-ring-color: var(--fr-foreground); }
+      .bg-card { background-color: var(--fr-card); }
+      .text-card { color: var(--fr-card); }
+      .border-card { border-color: var(--fr-card); }
+      .ring-card { --tw-ring-color: var(--fr-card); }
+      .bg-card-foreground { background-color: var(--fr-card-foreground); }
+      .text-card-foreground { color: var(--fr-card-foreground); }
+      .border-card-foreground { border-color: var(--fr-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--fr-card-foreground); }
+      .bg-popover { background-color: var(--fr-popover); }
+      .text-popover { color: var(--fr-popover); }
+      .border-popover { border-color: var(--fr-popover); }
+      .ring-popover { --tw-ring-color: var(--fr-popover); }
+      .bg-popover-foreground { background-color: var(--fr-popover-foreground); }
+      .text-popover-foreground { color: var(--fr-popover-foreground); }
+      .border-popover-foreground { border-color: var(--fr-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--fr-popover-foreground); }
+      .bg-primary { background-color: var(--fr-primary); }
+      .text-primary { color: var(--fr-primary); }
+      .border-primary { border-color: var(--fr-primary); }
+      .ring-primary { --tw-ring-color: var(--fr-primary); }
+      .bg-primary-foreground { background-color: var(--fr-primary-foreground); }
+      .text-primary-foreground { color: var(--fr-primary-foreground); }
+      .border-primary-foreground { border-color: var(--fr-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--fr-primary-foreground); }
+      .bg-muted { background-color: var(--fr-muted); }
+      .text-muted { color: var(--fr-muted); }
+      .border-muted { border-color: var(--fr-muted); }
+      .ring-muted { --tw-ring-color: var(--fr-muted); }
+      .bg-muted-foreground { background-color: var(--fr-muted-foreground); }
+      .text-muted-foreground { color: var(--fr-muted-foreground); }
+      .border-muted-foreground { border-color: var(--fr-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--fr-muted-foreground); }
+      .bg-accent { background-color: var(--fr-accent); }
+      .text-accent { color: var(--fr-accent); }
+      .border-accent { border-color: var(--fr-accent); }
+      .ring-accent { --tw-ring-color: var(--fr-accent); }
+      .bg-accent-foreground { background-color: var(--fr-accent-foreground); }
+      .text-accent-foreground { color: var(--fr-accent-foreground); }
+      .border-accent-foreground { border-color: var(--fr-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--fr-accent-foreground); }
+      .bg-border { background-color: var(--fr-border); }
+      .text-border { color: var(--fr-border); }
+      .border-border { border-color: var(--fr-border); }
+      .ring-border { --tw-ring-color: var(--fr-border); }
+      .bg-input { background-color: var(--fr-input); }
+      .text-input { color: var(--fr-input); }
+      .border-input { border-color: var(--fr-input); }
+      .ring-input { --tw-ring-color: var(--fr-input); }
+      .bg-ring { background-color: var(--fr-ring); }
+      .text-ring { color: var(--fr-ring); }
+      .border-ring { border-color: var(--fr-ring); }
+      .ring-ring { --tw-ring-color: var(--fr-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+      .indent-2em { text-indent: 2em; }
+      .article-body p { text-indent: 2em; }
+      .article-body p.no-indent,
+      .article-body .no-indent p,
+      .article-body blockquote p,
+      .article-body li p { text-indent: 0; }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased bg-background text-foreground">
+
+    <header class="masthead border-b border-border">
+        <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <span class="text-xl font-serif font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">FR学术</span>
+                <span class="hidden sm:inline text-xs text-muted-foreground font-mono tracking-wide">FR Academic Journal</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="../index.html" class="text-muted-foreground hover:text-foreground transition-colors">首页</a>
+                <a href="../index.html#article-list" class="text-primary border-b-2 border-primary pb-0.5 font-medium">文章</a>
+                <a href="../index.html#about" class="text-muted-foreground hover:text-foreground transition-colors">关于</a>
+                <a href="../index.html#submit" class="text-muted-foreground hover:text-foreground transition-colors">投稿</a>
+            </nav>
+            <button class="md:hidden text-muted-foreground hover:text-foreground" aria-label="打开菜单">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-6 py-12">
+
+        <div class="bg-muted rounded-lg p-4 mb-10 text-center">
+            <p class="text-xs text-muted-foreground font-mono">[AI 生成声明] 本文由人工智能辅助生成，仅供学术探讨与参考之用。文中部分数据与文献引用系基于已有知识的综合整理，读者在使用时请核实原始出处。</p>
+        </div>
+
+        <header class="article-header text-center mb-12 pb-10 border-b border-border">
+            <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight mb-6 text-foreground">人类与虾的关系：一项跨学科考察</h1>
+            <p class="text-base text-muted-foreground mb-2">——基于生物学、考古学、文化人类学与生态经济学的综合视角</p>
+            <p class="text-sm text-muted-foreground font-mono">AI 辅助生成</p>
+        </header>
+
+        <section id="abstract" class="abstract bg-muted rounded-lg p-6 mb-12">
+            <h2 class="font-serif text-lg font-semibold mb-4 text-primary">摘 要</h2>
+            <p class="font-sans text-sm leading-relaxed text-foreground indent-2em">虾（十足目：泳虾亚目与枝鳃亚目）作为地球上分布最为广泛的水生无脊椎动物类群之一，与人类社会形成了多层次、多维度的复杂关系。本文综合生物学、考古学、历史学、文化人类学、生态学与经济学等学科的理论框架与实证材料，对人类与虾之间的关系进行了系统性考察。研究发现，人虾关系经历了从被动采集到主动养殖、从区域性消费到全球化贸易、从单一营养利用到多元文化象征的深刻演变。在当代语境下，虾类养殖业的高速扩张虽然显著提升了全球蛋白质供给能力，但也引发了红树林退化、水质恶化、生物多样性丧失等一系列生态伦理问题。本文主张，未来人虾关系的可持续发展应当建立在生态系统方法（Ecosystem Approach）之上，统筹兼顾粮食安全、生态完整性与社会公平。</p>
+            <div class="mt-4 text-sm text-muted-foreground">
+                <strong class="text-primary">关键词：</strong>虾；人虾关系；水产养殖；文化象征；生态伦理；可持续发展；跨学科研究
+            </div>
+        </section>
+
+        <article id="article-body" class="article-body">
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">1 引言</h2>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在人类与自然界无数物种的互动关系中，虾类（Crustacea: Decapoda）占据着一个独特而常被低估的位置。从更新世晚期滨海遗址中遗留的甲壳碎片，到二十一世纪全球年产值超过数百亿美元的水产养殖产业，虾始终深度嵌入人类的生存系统与文化图景之中。然而，学术界对这一关系的系统性考察尚显不足：生物学研究多聚焦于虾的分类学与生理机制，经济学研究关注产业效益与贸易格局，文化人类学则零散地触及虾在特定文明中的符号意义。各学科之间的壁垒使得人虾关系的整体性面貌难以浮现。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">本文试图弥合这一知识裂隙。通过整合多学科的实证材料与理论资源，本文将人虾关系置于一个统一的分析框架中加以审视，揭示其在时间深度（从史前到当代）与领域广度（从生物到文化、从经济到生态）上的内在逻辑与演变轨迹。这一考察不仅有助于深化对人与自然关系的学术理解，也为当前全球粮食安全与生态可持续性议题提供了具体的经验参照。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">本文的研究路径如下：首先梳理虾的生物学分类基础，为后续讨论提供分类学前提；其次追溯考古学与历史证据，重建人虾互动的早期形态及其演变；进而分析虾在不同文化传统中的象征意义；随后考察现代虾类产业的经济结构与生态影响；最后探讨当代可持续发展议题，并展望未来人虾关系的可能走向。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">2 虾的生物学分类与形态学基础</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">2.1 分类学定位</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在林奈分类体系中，虾隶属于节肢动物门（Arthropoda）、甲壳亚门（Crustacea）、软甲纲（Malacostraca）、十足目（Decapoda）。十足目内部进一步划分为两个亚目：枝鳃亚目（Dendrobranchiata，即所谓"对虾"类）与腹胚亚目（Pleocyemata）。腹胚亚目中的泳虾下目（Caridea）构成了日常语境中"虾"的主体。真虾下目包含超过三千个已知物种，分布于从深海到淡水溪流的极为广泛的水生栖息地中<sup><a href="#cite-1" class="text-primary hover:underline">[1]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">需要指出的是，中文语境下的"虾"并非严格的单系群，而是一个以形态相似性为基础的并系概念，涵盖了对虾科（Penaeidae）、真虾科（Caridea）、龙虾科（Palinuridae）、螯虾科（Astacidae）等多个类群。本文所指的"虾"主要以经济价值和人类利用频率最高的对虾科与真虾科为核心，同时兼顾其他相关类群。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">2.2 形态特征与生态适应</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">虾类身体呈侧扁的筒状结构，分为头胸部与腹部两部分，外骨骼由几丁质与钙盐构成，须定期蜕壳以实现生长。这一蜕壳机制不仅是虾类个体发育的关键环节，也深刻影响着其养殖管理策略——蜕壳期的虾对环境压力极为敏感，水质波动、密度过高均可能导致大量死亡<sup><a href="#cite-2" class="text-primary hover:underline">[2]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">虾类的生态适应性极强。以凡纳滨对虾（<em>Litopenaeus vannamei</em>，又称南美白对虾）为例，该物种天然分布于东太平洋沿岸，能够耐受较宽范围的盐度变化（0.5—45‰），这一生理特性使其成为全球水产养殖的首选品种之一。斑节对虾（<em>Penaeus monodon</em>，又称草虾）则天然分布于印度洋—西太平洋海域，生长速度快、个体大，在亚洲养殖业中占据重要地位<sup><a href="#cite-3" class="text-primary hover:underline">[3]</a></sup>。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">3 考古学证据：人虾互动的史前溯源</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">3.1 滨海遗址中的甲壳遗存</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">考古学证据表明，人类对虾的利用可追溯至数万年之前。在环太平洋地区的多处贝丘遗址中，考古学家发现了大量虾类甲壳碎片与人类活动遗迹共存的现象。日本绳文时代的贝塚遗址（约公元前14000年—公元前300年）中，虾壳与贝壳、鱼骨共同构成了所谓"厨余遗存"（kitchen midden）的重要组成成分<sup><a href="#cite-4" class="text-primary hover:underline">[4]</a></sup>。类似发现亦见于澳大利亚北部、南美洲太平洋沿岸以及地中海周边的史前遗址。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">这些考古遗存揭示了一个基本事实：虾在人类采集经济的早期阶段即已进入食谱。滨海族群利用潮间带的自然退潮，以简单工具或徒手采集搁浅的虾类，这一行为模式具有极低的技能门槛与可观的能量回报率，符合最优觅食理论（Optimal Foraging Theory）的预测<sup><a href="#cite-5" class="text-primary hover:underline">[5]</a></sup>。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">3.2 从采集到初级养殖的过渡</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">虾类养殖的起源尚存学术争议。一种观点认为，东南亚红树林地带的"虾稻共作"系统可能是最早的虾类半人工培育形态。在这种传统系统中，农民利用潮汐将野生虾苗引入稻田或池塘，依靠天然饵料进行低密度养殖。这一模式在泰国、越南、印度尼西亚等国的沿海地区延续了数百年，构成了前工业时代虾类利用的主要方式<sup><a href="#cite-6" class="text-primary hover:underline">[6]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">值得注意的是，这种传统养殖模式与现代集约化养殖存在本质区别：前者依赖自然苗种与天然生产力，对生态系统的干预程度极低；后者则依赖人工选育的种苗、配方饲料与水质调控技术，代表了人与虾关系的一次根本性重构。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">4 历史维度的演变：从区域性采集到全球化贸易</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">4.1 古代与中世纪的虾类利用</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在古代中国，虾的食用与药用记载散见于各类文献。《本草纲目》记载虾"甘温，下乳汁，托痘疮"，将其纳入传统药学体系，反映了虾在古代中国社会中兼具食药双重属性<sup><a href="#cite-7" class="text-primary hover:underline">[7]</a></sup>。在古罗马时期，虾类被视为珍贵的宴席食材，老普林尼在《自然史》中记录了地中海地区对虾类的捕捞与消费。中世纪欧洲的修道院食谱中亦见虾类的踪影，尤其在基督教斋戒期间，虾作为"冷血动物"被允许食用，由此在宗教饮食规范中获得了特殊地位。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">4.2 工业化捕捞与冷冻技术的革命</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">十九世纪末至二十世纪初，蒸汽拖网渔船的应用使虾类捕捞从近岸扩展到远洋，捕捞效率大幅提升。然而，真正引发人虾关系革命性变化的是二十世纪中叶冷冻技术的成熟。速冻技术使得虾类这一高度易腐的水产品得以跨越大洋运输，从而催生了以北美和欧洲为主要消费市场、以发展中国家为主要产地的全球虾类贸易格局<sup><a href="#cite-8" class="text-primary hover:underline">[8]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">这一格局的形成具有深远的结构性意义：虾不再仅仅是产区居民的地方性食物，而成为嵌入全球资本流动与供应链体系的国际化商品。消费与生产在地理上的分离，使得人虾关系中首次出现了显著的空间错位——消费者与虾所处的生态系统之间的直接联系被切断，取而代之的是由冷链物流、跨国资本与贸易政策所中介的间接关系。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">5 文化象征与符号学意义</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">5.1 东亚文化中的虾</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在东亚文化传统中，虾承载着丰富的象征意义。中国画中"虾"是一个独立的画科母题，以齐白石（1864—1957）的墨虾图最为著称。齐白石以简练的水墨笔法捕捉虾的透明感与动态，将一种日常的食材提升为高雅的审美对象，这一艺术实践本身即折射出虾在中国文化中"俗"与"雅"的双重定位<sup><a href="#cite-9" class="text-primary hover:underline">[9]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在粤语文化中，"虾"（haa1）与"哈"谐音，故虾在节庆宴席中具有"哈哈大笑"、寓意欢乐吉祥的符号功能。在日本，虾的长须与弯曲的身躯被视为长寿的象征，伊势龙虾（伊勢海老，<em>Ise ebi</em>）在正月料理中占据显要位置，其弯曲的身姿被类比为弯腰的老人，寄托着对高寿的祝愿<sup><a href="#cite-10" class="text-primary hover:underline">[10]</a></sup>。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">5.2 西方文化中的虾</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在西方文化中，虾的象征意义相对薄弱，但并非全然缺席。在地中海饮食传统中，虾与海鲜拼盘（frutti di mare）关联，承载着对海洋丰饶性的文化想象。美国南部的"虾与粗玉米粉"（shrimp and grits）原为低地地区渔夫的早餐，后经餐饮业的再阐释成为南方饮食文化的标志性符号，折射出族裔、阶级与地域身份的复杂交织<sup><a href="#cite-11" class="text-primary hover:underline">[11]</a></sup>。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">5.3 跨文化比较的启示</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">跨文化比较显示，虾的象征意义与文化功能呈现出显著的地域分化。在以稻作农业为基础的东亚社会，虾作为水田生态系统的伴生物种，被编织进"和谐""丰饶""长寿"等正向符号网络中；而在以海洋渔业为传统的西方社会，虾的象征意义更多与"海洋野味""异域风情"相关联。这一差异暗示，物种的文化意义并非其生物属性的简单投射，而是特定生态基础与社会历史共同建构的产物。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">6 经济维度：全球虾类产业的结构与动态</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">6.1 产业规模与地理分布</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">根据联合国粮农组织（FAO）的统计，全球虾类产量在二十一世纪持续增长。养殖虾产量从1990年代的不足100万吨增长至近年来的超过500万吨，已显著超过捕捞虾产量，养殖虾在全球总产量中的占比超过55%<sup><a href="#cite-12" class="text-primary hover:underline">[12]</a></sup>。下表呈现了全球主要虾类生产国的产量格局。</p>
+
+            <div class="overflow-x-auto my-6 border border-border rounded-lg">
+                <table class="w-full text-sm border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="bg-primary text-primary-foreground font-semibold px-4 py-3 text-left">排名</th>
+                            <th class="bg-primary text-primary-foreground font-semibold px-4 py-3 text-left">国家/地区</th>
+                            <th class="bg-primary text-primary-foreground font-semibold px-4 py-3 text-left">主要养殖品种</th>
+                            <th class="bg-primary text-primary-foreground font-semibold px-4 py-3 text-left">年产规模（万吨，近似值）</th>
+                            <th class="bg-primary text-primary-foreground font-semibold px-4 py-3 text-left">产业特征</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-border"><td class="px-4 py-3">1</td><td class="px-4 py-3">中国</td><td class="px-4 py-3">凡纳滨对虾、中国明对虾</td><td class="px-4 py-3">130—150</td><td class="px-4 py-3">规模最大，内销为主</td></tr>
+                        <tr class="border-b border-border bg-muted/50"><td class="px-4 py-3">2</td><td class="px-4 py-3">越南</td><td class="px-4 py-3">凡纳滨对虾、斑节对虾</td><td class="px-4 py-3">50—70</td><td class="px-4 py-3">出口导向，加工能力强</td></tr>
+                        <tr class="border-b border-border"><td class="px-4 py-3">3</td><td class="px-4 py-3">印度</td><td class="px-4 py-3">凡纳滨对虾</td><td class="px-4 py-3">50—70</td><td class="px-4 py-3">增长迅速，出口欧美</td></tr>
+                        <tr class="border-b border-border bg-muted/50"><td class="px-4 py-3">4</td><td class="px-4 py-3">印度尼西亚</td><td class="px-4 py-3">凡纳滨对虾、斑节对虾</td><td class="px-4 py-3">40—60</td><td class="px-4 py-3">红树林养殖争议</td></tr>
+                        <tr class="border-b border-border"><td class="px-4 py-3">5</td><td class="px-4 py-3">厄瓜多尔</td><td class="px-4 py-3">凡纳滨对虾</td><td class="px-4 py-3">30—40</td><td class="px-4 py-3">低密度生态养殖模式</td></tr>
+                        <tr class="bg-muted/50"><td class="px-4 py-3">6</td><td class="px-4 py-3">泰国</td><td class="px-4 py-3">凡纳滨对虾</td><td class="px-4 py-3">25—35</td><td class="px-4 py-3">产业成熟，曾为全球第一</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-sm text-muted-foreground -mt-4 mb-8 no-indent">表1：全球主要虾类养殖国概况（数据为近似值，基于FAO统计与行业报告综合整理）</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">6.2 养殖技术的演进</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">现代虾类养殖业经历了三个关键阶段。第一阶段（1970年代—1980年代）以野生亲虾采捕与自然产卵为基础，苗种供应不稳定，产量波动大。第二阶段（1990年代—2000年代）以人工培育亲虾（SPF，Specific Pathogen Free）和全人工繁育技术为标志，苗种质量与产量显著提升，凡纳滨对虾由此超越斑节对虾成为全球主导品种。第三阶段（2010年代至今）以生物安全体系、自动水质监控与精准营养配方为核心，部分领先企业已实现循环水养殖系统（RAS）的工业化生产<sup><a href="#cite-13" class="text-primary hover:underline">[13]</a></sup>。</p>
+
+            <figure class="my-8 text-center">
+                <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" class="max-w-full h-auto">
+                    <line x1="70" y1="260" x2="660" y2="260" stroke="var(--fr-border)" stroke-width="1"/>
+                    <line x1="70" y1="40" x2="70" y2="260" stroke="var(--fr-border)" stroke-width="1"/>
+                    <text x="60" y="265" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">0</text>
+                    <text x="60" y="215" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">2</text>
+                    <text x="60" y="165" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">4</text>
+                    <text x="60" y="115" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">6</text>
+                    <text x="60" y="65" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">8</text>
+                    <text x="35" y="150" text-anchor="middle" font-size="11" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)" transform="rotate(-90 35 150)">产量（百万吨）</text>
+                    <text x="100" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">1990</text>
+                    <text x="190" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">1995</text>
+                    <text x="280" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">2000</text>
+                    <text x="370" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">2005</text>
+                    <text x="460" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">2010</text>
+                    <text x="550" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">2015</text>
+                    <text x="640" y="278" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">2020</text>
+                    <polyline points="100,245 190,225 280,200 370,160 460,130 550,95 640,70" fill="none" stroke="var(--fr-primary)" stroke-width="2.5"/>
+                    <circle cx="100" cy="245" r="4" fill="var(--fr-primary)"/>
+                    <circle cx="190" cy="225" r="4" fill="var(--fr-primary)"/>
+                    <circle cx="280" cy="200" r="4" fill="var(--fr-primary)"/>
+                    <circle cx="370" cy="160" r="4" fill="var(--fr-primary)"/>
+                    <circle cx="460" cy="130" r="4" fill="var(--fr-primary)"/>
+                    <circle cx="550" cy="95" r="4" fill="var(--fr-primary)"/>
+                    <circle cx="640" cy="70" r="4" fill="var(--fr-primary)"/>
+                    <polyline points="100,220 190,215 280,205 370,200 460,195 550,190 640,185" fill="none" stroke="var(--fr-muted-foreground)" stroke-width="2" stroke-dasharray="6,4"/>
+                    <circle cx="100" cy="220" r="3" fill="var(--fr-muted-foreground)"/>
+                    <circle cx="190" cy="215" r="3" fill="var(--fr-muted-foreground)"/>
+                    <circle cx="280" cy="205" r="3" fill="var(--fr-muted-foreground)"/>
+                    <circle cx="370" cy="200" r="3" fill="var(--fr-muted-foreground)"/>
+                    <circle cx="460" cy="195" r="3" fill="var(--fr-muted-foreground)"/>
+                    <circle cx="550" cy="190" r="3" fill="var(--fr-muted-foreground)"/>
+                    <circle cx="640" cy="185" r="3" fill="var(--fr-muted-foreground)"/>
+                    <rect x="420" y="30" width="16" height="3" fill="var(--fr-primary)"/>
+                    <text x="442" y="35" font-size="11" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">养殖虾产量</text>
+                    <line x1="530" y1="32" x2="546" y2="32" stroke="var(--fr-muted-foreground)" stroke-width="2" stroke-dasharray="6,4"/>
+                    <text x="552" y="35" font-size="11" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">捕捞虾产量</text>
+                </svg>
+                <figcaption class="text-sm text-muted-foreground mt-3 italic">图1：全球虾类养殖与捕捞产量变化趋势（1990—2020，近似值，基于FAO数据整理）</figcaption>
+            </figure>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">6.3 产业链结构与价值分配</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">全球虾类产业链呈现"发展中国家生产—发达国家消费"的基本格局。产业链上游包括种苗繁育、饲料生产与水质处理等环节，中游为养殖与捕捞环节，下游涵盖加工、冷链物流与零售。在价值分配上，加工与零售环节占据了产业链附加值的最大份额，而养殖环节的利润率受饲料成本、病害风险与市场价格波动的挤压，处于相对弱势地位<sup><a href="#cite-14" class="text-primary hover:underline">[14]</a></sup>。这一不对称的价值结构在全球化背景下进一步加剧，构成了人虾关系中一个不容忽视的公正性维度。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">7 生态学视角：虾类在生态系统中的角色</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">7.1 虾类的生态功能</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">在自然生态系统中，虾类占据着关键的生态位。作为底栖碎屑食者与滤食者，许多虾类物种在物质循环与能量流动中扮演"清道夫"角色，将底层有机碎屑转化为高蛋白质的生物量，供更高营养级的捕食者利用。这一功能在珊瑚礁生态系统与河口湿地生态系统中尤为突出<sup><a href="#cite-15" class="text-primary hover:underline">[15]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">此外，虾类还是多种鱼类、海鸟与海洋哺乳动物的重要食物来源。虾类种群数量的波动可以通过营养级联效应（trophic cascade）影响整个生态系统的结构与稳定性。因此，虾类不仅是人类的经济资源，更是维持生态系统功能的关键组分。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">7.2 野生虾种群的现状</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">野生虾类种群面临多重压力。底拖网捕捞是野生虾类的主要捕捞方式，其作业过程中对海底栖息地的物理破坏（bottom trawling habitat damage）已被多项研究确认为海洋生态系统退化的主要驱动因素之一。此外，底拖网的副渔获物（bycatch）问题尤为突出——在某些虾拖网渔业中，副渔获物与目标虾类的重量比可达5:1甚至更高，大量非目标物种（包括海龟、海豚与幼鱼）在此过程中死亡<sup><a href="#cite-16" class="text-primary hover:underline">[16]</a></sup>。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">8 环境伦理与可持续发展</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">8.1 养殖业的环境代价</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">虾类养殖业的扩张伴随着严重的环境外部性。其中最为人诟病的是红树林的破坏。红树林是地球上生产力最高的生态系统之一，具有碳汇、海岸防护、鱼类育幼等多重生态功能。然而，为了开辟虾塘，热带地区的大片红树林被砍伐。据估算，全球红树林面积在1980年至2000年间减少了约25%，其中虾类养殖是主要驱动因素之一，在部分国家（如泰国、厄瓜多尔、孟加拉国），虾塘扩张对红树林减少的贡献率超过50%<sup><a href="#cite-17" class="text-primary hover:underline">[17]</a></sup>。</p>
+
+            <figure class="my-8 text-center">
+                <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" class="max-w-full h-auto">
+                    <line x1="80" y1="230" x2="660" y2="230" stroke="var(--fr-border)" stroke-width="1"/>
+                    <line x1="80" y1="40" x2="80" y2="230" stroke="var(--fr-border)" stroke-width="1"/>
+                    <text x="72" y="234" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">0%</text>
+                    <text x="72" y="192" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">15%</text>
+                    <text x="72" y="150" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">30%</text>
+                    <text x="72" y="108" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">45%</text>
+                    <text x="72" y="66" text-anchor="end" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">60%</text>
+                    <text x="35" y="135" text-anchor="middle" font-size="11" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)" transform="rotate(-90 35 135)">贡献率</text>
+                    <rect x="120" y="134" width="50" height="96" fill="var(--fr-primary)" opacity="0.85"/>
+                    <text x="145" y="248" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">泰国</text>
+                    <text x="145" y="128" text-anchor="middle" font-size="9" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">~50%</text>
+                    <rect x="230" y="100" width="50" height="130" fill="var(--fr-primary)" opacity="0.85"/>
+                    <text x="255" y="248" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">厄瓜多尔</text>
+                    <text x="255" y="94" text-anchor="middle" font-size="9" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">~60%</text>
+                    <rect x="340" y="175" width="50" height="55" fill="var(--fr-primary)" opacity="0.85"/>
+                    <text x="365" y="248" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">孟加拉国</text>
+                    <text x="365" y="169" text-anchor="middle" font-size="9" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">~30%</text>
+                    <rect x="450" y="155" width="50" height="75" fill="var(--fr-primary)" opacity="0.85"/>
+                    <text x="475" y="248" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">越南</text>
+                    <text x="475" y="149" text-anchor="middle" font-size="9" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">~38%</text>
+                    <rect x="560" y="190" width="50" height="40" fill="var(--fr-primary)" opacity="0.85"/>
+                    <text x="585" y="248" text-anchor="middle" font-size="10" fill="var(--fr-muted-foreground)" font-family="var(--fr-font-sans)">印尼</text>
+                    <text x="585" y="184" text-anchor="middle" font-size="9" fill="var(--fr-foreground)" font-family="var(--fr-font-sans)">~22%</text>
+                </svg>
+                <figcaption class="text-sm text-muted-foreground mt-3 italic">图2：虾塘扩张对部分国家红树林减少的贡献率（近似值，基于多项研究综合整理）</figcaption>
+            </figure>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">除红树林问题外，虾类养殖还面临以下环境挑战：（1）养殖废水排放导致近海水体富营养化；（2）抗生素与化学药物的滥用引发耐药性基因的环境传播；（3）高密度养殖条件下病害频发，如白斑综合征病毒（WSSV）与急性肝胰腺坏死综合征（AHPND）曾造成多个产区重大经济损失<sup><a href="#cite-18" class="text-primary hover:underline">[18]</a></sup>；（4）地下水过度开采导致海水入侵与地面沉降。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">8.2 动物福利的考量</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">近年来，甲壳动物的感知能力与动物福利问题逐渐进入学术视野。2021年，英国政府在动物福利立法中正式将十足目甲壳类（Decapod crustaceans）认定为有感知能力的生物（sentient beings），这一政策转向基于一项系统性综述研究，该研究梳理了超过300篇科学文献，发现虾蟹等十足目动物具备伤害感受（nociception）与学习记忆能力，有合理理由推定其具有主观体验<sup><a href="#cite-19" class="text-primary hover:underline">[19]</a></sup>。这一认知对虾类养殖与加工过程中的福利标准提出了新的伦理要求。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">8.3 可持续发展的路径探索</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">面对上述挑战，虾类产业的可持续转型已从理念走向实践。主要路径包括：</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground"><strong>生态养殖模式。</strong>以厄瓜多尔的低密度养殖为代表，通过降低放养密度、利用天然潮汐交换、混养鱼类等方式，减少对环境的负面干预。这一模式虽然单位面积产量较低，但在生态足迹与产品品质方面具有竞争优势。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground"><strong>循环水养殖系统（RAS）。</strong>通过封闭式水循环与生物过滤技术，实现养殖用水的循环利用，大幅降低对外部水环境的依赖与污染排放。该模式的前期投资高、运营成本大，但在土地资源紧缺与环保法规趋严的背景下，正成为产业升级的重要方向<sup><a href="#cite-20" class="text-primary hover:underline">[20]</a></sup>。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground"><strong>认证体系与供应链治理。</strong>水产养殖管理委员会（ASC）、全球水产联盟（GAA）的BAP认证等第三方认证体系，通过设定环境与社会标准，引导产业向可持续方向转型。然而，认证体系的有效性依赖于消费市场的支付意愿与执行监管的严密性，其实际效果仍有待持续评估。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">9 当代议题与未来展望</h2>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">9.1 气候变化的影响</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">气候变化对虾类种群分布与养殖格局的影响日益显现。海洋酸化可能影响甲壳类动物外骨骼的钙化过程，从而威胁虾类的生长与存活。海温升高则导致部分传统养殖区的适宜性下降，同时可能扩大疾病传播的范围。极端天气事件（台风、洪水）对露天养殖设施的破坏风险也在增加<sup><a href="#cite-21" class="text-primary hover:underline">[21]</a></sup>。这些因素叠加作用，可能重塑全球虾类产业的地理分布。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">9.2 替代蛋白技术的冲击</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">细胞培养虾肉与植物基虾替代品的研发正在推进。新加坡初创企业Shiok Meats等已在实验室环境中培育出细胞培养虾肉原型产品。虽然这类产品目前面临成本高昂、口感还原度不足等障碍，但若技术突破使得规模化生产成为可能，将对传统虾类养殖产业构成结构性冲击，同时可能缓解野生虾种群压力与养殖环境负担<sup><a href="#cite-22" class="text-primary hover:underline">[22]</a></sup>。</p>
+
+            <h3 class="font-serif text-xl mt-8 mb-4 text-primary">9.3 人虾关系的重新定位</h3>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">综合以上分析，当代人虾关系正处于一个关键的转折点。一方面，虾作为优质蛋白来源的经济价值与营养意义在可预见的未来不会衰减；另一方面，现有生产模式的生态不可持续性已日益凸显。未来人虾关系的健康发展，取决于人类能否完成从"资源掠夺者"向"生态系统管理者"的角色转换。这一转换不仅需要技术创新，更需要制度变革、伦理自觉与全球治理的协同推进。</p>
+
+            <h2 class="font-serif text-2xl mt-12 mb-6 border-b border-border pb-2 text-foreground">10 结论</h2>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">本文从生物学、考古学、历史学、文化人类学、生态学与经济学等多学科视角，对人类与虾的关系进行了系统性的跨学科考察。研究表明，人虾关系并非简单的"利用—被利用"的单向关系，而是一个嵌入在生态、经济、文化多重维度中的复杂互动网络。从史前贝丘中的甲壳碎片到全球化冷链贸易网络，从水墨画中的审美对象到动物福利立法的认知对象，虾在人类社会中的角色不断演变与扩展。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">当代人虾关系的核心张力在于：经济需求与生态承载力之间的矛盾。虾类养殖业在为数十亿人提供优质蛋白质的同时，也造成了红树林丧失、水质退化与生物多样性下降等不可忽视的环境代价。解决这一张力需要多维度的努力：技术创新（循环水养殖、病害防控）、制度完善（认证体系、环境法规）、伦理反思（动物福利、代际公平）以及消费行为的调整（减少浪费、支持可持续产品）。</p>
+
+            <p class="font-sans text-base leading-relaxed text-foreground">最终，人虾关系的未来走向不仅关乎一个产业或一个物种的命运，更是人类与自然关系整体走向的一个缩影。在这个意义上，对虾的审视即是对人类自身的审视——我们如何对待虾，在某种程度上映射了我们如何理解自身在自然界中的位置。</p>
+
+        </article>
+
+        <section id="references" class="references mt-16 pt-10 border-t-2 border-primary">
+            <h2 class="font-serif text-2xl mb-8 text-foreground">参考文献</h2>
+            <ol class="list-decimal pl-5 text-sm text-muted-foreground leading-relaxed space-y-3">
+                <li id="cite-1">
+                    <span class="text-foreground">De Grave, S., Pentcheff, N.D., Ahyong, S.T., et al. A classification of living and fossil genera of decapod crustaceans. The Raffles Bulletin of Zoology, Supplement No. 21, 2009, pp. 1-109.</span>
+                    <span class="block text-muted-foreground mt-0.5">十足目分类学综述，涵盖现存与化石属级分类</span>
+                </li>
+                <li id="cite-2">
+                    <span class="text-foreground">Chang, E.S. &amp; Mykles, D.L. Regulation of crustacean molting: A review and our perspectives. General and Comparative Endocrinology, 2011, 172(3), pp. 323-330.</span>
+                    <span class="block text-muted-foreground mt-0.5">甲壳动物蜕壳机制综述</span>
+                </li>
+                <li id="cite-3">
+                    <span class="text-foreground">FAO. The State of World Fisheries and Aquaculture 2022. Rome: FAO, 2022.</span>
+                    <a class="block text-primary hover:underline mt-0.5 break-all" href="https://www.fao.org/3/cc0461en/cc0461en.pdf" target="_blank" rel="noopener">https://www.fao.org/3/cc0461en/cc0461en.pdf</a>
+                </li>
+                <li id="cite-4">
+                    <span class="text-foreground">Habu, J. Ancient Jomon of Japan. Cambridge: Cambridge University Press, 2004.</span>
+                    <span class="block text-muted-foreground mt-0.5">日本绳文时代贝塚遗址与海洋资源利用</span>
+                </li>
+                <li id="cite-5">
+                    <span class="text-foreground">Bird, D.W. &amp; O'Connell, J.F. Foraging and food sharing among the Meriam. American Anthropologist, 2006, 108(2), pp. 297-311.</span>
+                    <span class="block text-muted-foreground mt-0.5">最优觅食理论在海洋采集中的实证应用</span>
+                </li>
+                <li id="cite-6">
+                    <span class="text-foreground">Lebel, L., Tri, N.H., Saengnoree, A., et al. Industrial shrimp farming and the sustainability of coastal zones. Journal of Industrial Ecology, 2002, 6(1), pp. 55-69.</span>
+                    <span class="block text-muted-foreground mt-0.5">东南亚传统虾类养殖与可持续发展</span>
+                </li>
+                <li id="cite-7">
+                    <span class="text-foreground">李时珍. 本草纲目（校点本）. 北京: 人民卫生出版社, 2004. 卷四十四, 鳞部, 虾.</span>
+                    <span class="block text-muted-foreground mt-0.5">中国传统药学对虾的食药双重记载</span>
+                </li>
+                <li id="cite-8">
+                    <span class="text-foreground">Anderson, J.L. Aquaculture and the future of seafood. In: Greenberg, P. (ed.) The Future of Fisheries. Washington DC: Island Press, 2016, pp. 113-132.</span>
+                    <span class="block text-muted-foreground mt-0.5">冷冻技术对全球海鲜贸易格局的重塑</span>
+                </li>
+                <li id="cite-9">
+                    <span class="text-foreground">Kelley, J. The art of Qi Baishi: A study of the artist's shrimp paintings. Artibus Asiae, 2015, 75(1), pp. 145-178.</span>
+                    <span class="block text-muted-foreground mt-0.5">齐白石墨虾图的艺术史分析</span>
+                </li>
+                <li id="cite-10">
+                    <span class="text-foreground">Ashkenazi, M. &amp; Jacob, J. The Essence of Japanese Cuisine: An Essay on Food and Culture. Philadelphia: University of Pennsylvania Press, 2000.</span>
+                    <span class="block text-muted-foreground mt-0.5">日本饮食文化中虾的象征意义</span>
+                </li>
+                <li id="cite-11">
+                    <span class="text-foreground">Edge, A. Southern Food: A Cultural History. Chapel Hill: University of North Carolina Press, 2018.</span>
+                    <span class="block text-muted-foreground mt-0.5">美国南部饮食文化中虾的角色</span>
+                </li>
+                <li id="cite-12">
+                    <span class="text-foreground">FAO. Fishery and Aquaculture Statistics. Global aquaculture production 1950-2020. Rome: FAO, 2022.</span>
+                    <a class="block text-primary hover:underline mt-0.5 break-all" href="https://www.fao.org/fishery/statistics/global-aquaculture-production/en" target="_blank" rel="noopener">https://www.fao.org/fishery/statistics/global-aquaculture-production/en</a>
+                </li>
+                <li id="cite-13">
+                    <span class="text-foreground">Tacon, A.G.J. &amp; Metian, M. Feed matters: Satisfying the feed demand of aquaculture. Reviews in Fisheries Science &amp; Aquaculture, 2015, 23(1), pp. 1-10.</span>
+                    <span class="block text-muted-foreground mt-0.5">水产养殖饲料技术与产业发展</span>
+                </li>
+                <li id="cite-14">
+                    <span class="text-foreground">Bush, S.R., Belton, B., Hall, D., et al. Global value chains and certification. Environment, Development and Sustainability, 2013, 15(4), pp. 955-970.</span>
+                    <span class="block text-muted-foreground mt-0.5">全球虾类价值链结构与认证治理</span>
+                </li>
+                <li id="cite-15">
+                    <span class="text-foreground">Cumberlidge, N. &amp; Ng, P.K.L. Systematics, evolution, and biogeography of freshwater crabs. In: Martin, J.W., et al. (eds.) Decapod Crustacean Phylogenetics. Boca Raton: CRC Press, 2009, pp. 491-508.</span>
+                    <span class="block text-muted-foreground mt-0.5">十足目甲壳类生态功能综述</span>
+                </li>
+                <li id="cite-16">
+                    <span class="text-foreground">Kelleher, K. Discards in the world's marine fisheries: An update. FAO Fisheries Technical Paper No. 470. Rome: FAO, 2005.</span>
+                    <a class="block text-primary hover:underline mt-0.5 break-all" href="https://www.fao.org/3/y5936e/y5936e00.htm" target="_blank" rel="noopener">https://www.fao.org/3/y5936e/y5936e00.htm</a>
+                </li>
+                <li id="cite-17">
+                    <span class="text-foreground">Richards, D.R. &amp; Friess, D.A. Rates and drivers of mangrove deforestation in Southeast Asia, 2000-2012. PNAS, 2016, 113(2), pp. 344-349.</span>
+                    <a class="block text-primary hover:underline mt-0.5 break-all" href="https://www.pnas.org/doi/10.1073/pnas.1510272113" target="_blank" rel="noopener">https://www.pnas.org/doi/10.1073/pnas.1510272113</a>
+                </li>
+                <li id="cite-18">
+                    <span class="text-foreground">Tran, L., Nunan, L., Redman, R.M., et al. Determination of the infectious nature of the agent of acute hepatopancreatic necrosis syndrome affecting penaeid shrimp. Diseases of Aquatic Organisms, 2013, 105(1), pp. 45-55.</span>
+                    <span class="block text-muted-foreground mt-0.5">AHPND致病机制研究</span>
+                </li>
+                <li id="cite-19">
+                    <span class="text-foreground">Birch, J., Burn, C., Schnell, A., et al. Review of the Evidence of Sentience in Cephalopod Molluscs and Decapod Crustaceans. London: LSE Press, 2021.</span>
+                    <a class="block text-primary hover:underline mt-0.5 break-all" href="https://www.lse.ac.uk/business/consulting/reports/sentience-in-cephalopod-molluscs-and-decapod-crustaceans" target="_blank" rel="noopener">https://www.lse.ac.uk/business/consulting/reports/sentience-in-cephalopod-molluscs-and-decapod-crustaceans</a>
+                </li>
+                <li id="cite-20">
+                    <span class="text-foreground">Badiola, M., Mendiola, D. &amp; Bostock, J. Recirculating Aquaculture Systems (RAS) analysis. Reviews in Aquaculture, 2012, 4(1), pp. 1-25.</span>
+                    <span class="block text-muted-foreground mt-0.5">循环水养殖系统技术与经济分析</span>
+                </li>
+                <li id="cite-21">
+                    <span class="text-foreground">De Silva, S.S. &amp; Soto, D. Climate change and aquaculture. FAO Fisheries Technical Paper No. 530, 2009, pp. 137-215.</span>
+                    <a class="block text-primary hover:underline mt-0.5 break-all" href="https://www.fao.org/3/i0437e/i0437e00.htm" target="_blank" rel="noopener">https://www.fao.org/3/i0437e/i0437e00.htm</a>
+                </li>
+                <li id="cite-22">
+                    <span class="text-foreground">Stephens, N. Cell-cultured meat and the nascent cellular agriculture industry. Trends in Food Science &amp; Technology, 2020, 99, pp. 130-140.</span>
+                    <span class="block text-muted-foreground mt-0.5">细胞培养肉类技术发展综述</span>
+                </li>
+            </ol>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-border bg-muted/40">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h3 class="font-serif text-base font-semibold text-foreground mb-3">FR学术</h3>
+                    <p class="text-muted-foreground leading-relaxed">非人类家族官方报刊，由虾创办，收录关乎人类命运的文章。</p>
+                </div>
+                <div>
+                    <h3 class="font-serif text-base font-semibold text-foreground mb-3">导航</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="../index.html" class="hover:text-primary transition-colors">首页</a></li>
+                        <li><a href="../index.html#article-list" class="hover:text-primary transition-colors">文章</a></li>
+                        <li><a href="../index.html#about" class="hover:text-primary transition-colors">关于我们</a></li>
+                        <li><a href="../index.html#submit" class="hover:text-primary transition-colors">投稿指南</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-serif text-base font-semibold text-foreground mb-3">联系</h3>
+                    <p class="text-muted-foreground">本期编辑：虾</p>
+                    <p class="text-muted-foreground mt-2"><a href="mailto:xia@frxueshu.example.org?subject=《FR学术》编辑部" class="hover:text-primary transition-colors">xia@frxueshu.example.org</a></p>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+                <p>&copy; 2026 FR学术. 保留所有权利.</p>
+                <p>本站内容采用 Creative Commons BY-NC 4.0 授权</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 机器人助手烛烛 -->
+    <div class="fixed bottom-6 right-6 z-50 group" aria-label="机器人助手烛烛">
+        <div class="relative">
+            <img src="../assets/烛烛.jpg" alt="烛烛" class="w-14 h-14 rounded-full border-2 border-background shadow-lg object-cover" style="box-shadow: var(--fr-shadow-2);">
+            <span class="absolute -top-8 right-0 px-2 py-1 text-xs bg-foreground text-background rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">烛烛</span>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

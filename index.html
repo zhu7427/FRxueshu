@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FR学术 · 首页</title>
+    <style id="theme-vars">
+:root {
+  /* FR学术品牌色板：cream 纸色 + 深靛蓝 */
+  --fr-background: #faf8f3;
+  --fr-foreground: #1a1a1a;
+  --fr-card: #ffffff;
+  --fr-card-foreground: #1a1a1a;
+  --fr-popover: #ffffff;
+  --fr-popover-foreground: #1a1a1a;
+  --fr-primary: #1e3a5f;
+  --fr-primary-foreground: #ffffff;
+  --fr-muted: #f2efe8;
+  --fr-muted-foreground: #6b6b6b;
+  --fr-border: #e3dfd5;
+  --fr-input: #e3dfd5;
+  --fr-ring: #1e3a5f;
+
+  /* 扩展语义色 */
+  --fr-surface: #ffffff;
+  --fr-surface-2: #f5f2eb;
+  --fr-ink: #1a1a1a;
+  --fr-ink-2: #5c5c5c;
+  --fr-ink-3: #8a8a8a;
+  --fr-line: #e3dfd5;
+  --fr-accent: #c9a227;
+  --fr-accent-foreground: #1a1a1a;
+
+  /* 状态色 */
+  --fr-state-success: #2e7d32;
+  --fr-state-warning: #b26a00;
+  --fr-state-error: #c62828;
+  --fr-state-info: #1565c0;
+
+  /* 半径 */
+  --fr-radius-sm: 4px;
+  --fr-radius-md: 8px;
+  --fr-radius-lg: 16px;
+  --fr-radius-pill: 999px;
+
+  /* 阴影 */
+  --fr-shadow-1: 0 1px 2px rgba(26, 26, 26, 0.05), 0 1px 1px rgba(26, 26, 26, 0.03);
+  --fr-shadow-2: 0 8px 24px -8px rgba(26, 26, 26, 0.14);
+  --fr-shadow-3: 0 24px 60px -20px rgba(26, 26, 26, 0.24);
+
+  /* 间距 */
+  --fr-s-1: 4px;
+  --fr-s-2: 8px;
+  --fr-s-3: 12px;
+  --fr-s-4: 16px;
+  --fr-s-5: 24px;
+  --fr-s-6: 32px;
+  --fr-s-7: 48px;
+  --fr-s-8: 80px;
+  --fr-s-9: 120px;
+
+  /* 字体 */
+  --fr-font-sans: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --fr-font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', 'SimSun', Georgia, serif;
+  --fr-font-mono: 'IBM Plex Mono', 'SFMono-Regular', 'Consolas', monospace;
+}
+
+.light {
+  --fr-background: #faf8f3;
+  --fr-foreground: #1a1a1a;
+  --fr-card: #ffffff;
+  --fr-card-foreground: #1a1a1a;
+  --fr-primary: #1e3a5f;
+  --fr-primary-foreground: #ffffff;
+  --fr-muted: #f2efe8;
+  --fr-muted-foreground: #6b6b6b;
+  --fr-border: #e3dfd5;
+}
+
+.dark {
+  --fr-background: #121214;
+  --fr-foreground: #f2efe8;
+  --fr-card: #1c1c20;
+  --fr-card-foreground: #f2efe8;
+  --fr-primary: #6ba3d6;
+  --fr-primary-foreground: #121214;
+  --fr-muted: #25252b;
+  --fr-muted-foreground: #9a9a9a;
+  --fr-border: #33333a;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--fr-background);
+    --color-foreground: var(--fr-foreground);
+    --color-card: var(--fr-card);
+    --color-card-foreground: var(--fr-card-foreground);
+    --color-popover: var(--fr-popover);
+    --color-popover-foreground: var(--fr-popover-foreground);
+    --color-primary: var(--fr-primary);
+    --color-primary-foreground: var(--fr-primary-foreground);
+    --color-muted: var(--fr-muted);
+    --color-muted-foreground: var(--fr-muted-foreground);
+    --color-accent: var(--fr-accent);
+    --color-accent-foreground: var(--fr-accent-foreground);
+    --color-border: var(--fr-border);
+    --color-input: var(--fr-input);
+    --color-ring: var(--fr-ring);
+    --radius-sm: var(--fr-radius-sm);
+    --radius-md: var(--fr-radius-md);
+    --radius-lg: var(--fr-radius-lg);
+  }
+  @layer base {
+    body { background: var(--fr-background); color: var(--fr-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--fr-background); }
+      .text-background { color: var(--fr-background); }
+      .border-background { border-color: var(--fr-background); }
+      .ring-background { --tw-ring-color: var(--fr-background); }
+      .bg-foreground { background-color: var(--fr-foreground); }
+      .text-foreground { color: var(--fr-foreground); }
+      .border-foreground { border-color: var(--fr-foreground); }
+      .ring-foreground { --tw-ring-color: var(--fr-foreground); }
+      .bg-card { background-color: var(--fr-card); }
+      .text-card { color: var(--fr-card); }
+      .border-card { border-color: var(--fr-card); }
+      .ring-card { --tw-ring-color: var(--fr-card); }
+      .bg-card-foreground { background-color: var(--fr-card-foreground); }
+      .text-card-foreground { color: var(--fr-card-foreground); }
+      .border-card-foreground { border-color: var(--fr-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--fr-card-foreground); }
+      .bg-popover { background-color: var(--fr-popover); }
+      .text-popover { color: var(--fr-popover); }
+      .border-popover { border-color: var(--fr-popover); }
+      .ring-popover { --tw-ring-color: var(--fr-popover); }
+      .bg-popover-foreground { background-color: var(--fr-popover-foreground); }
+      .text-popover-foreground { color: var(--fr-popover-foreground); }
+      .border-popover-foreground { border-color: var(--fr-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--fr-popover-foreground); }
+      .bg-primary { background-color: var(--fr-primary); }
+      .text-primary { color: var(--fr-primary); }
+      .border-primary { border-color: var(--fr-primary); }
+      .ring-primary { --tw-ring-color: var(--fr-primary); }
+      .bg-primary-foreground { background-color: var(--fr-primary-foreground); }
+      .text-primary-foreground { color: var(--fr-primary-foreground); }
+      .border-primary-foreground { border-color: var(--fr-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--fr-primary-foreground); }
+      .bg-muted { background-color: var(--fr-muted); }
+      .text-muted { color: var(--fr-muted); }
+      .border-muted { border-color: var(--fr-muted); }
+      .ring-muted { --tw-ring-color: var(--fr-muted); }
+      .bg-muted-foreground { background-color: var(--fr-muted-foreground); }
+      .text-muted-foreground { color: var(--fr-muted-foreground); }
+      .border-muted-foreground { border-color: var(--fr-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--fr-muted-foreground); }
+      .bg-accent { background-color: var(--fr-accent); }
+      .text-accent { color: var(--fr-accent); }
+      .border-accent { border-color: var(--fr-accent); }
+      .ring-accent { --tw-ring-color: var(--fr-accent); }
+      .bg-accent-foreground { background-color: var(--fr-accent-foreground); }
+      .text-accent-foreground { color: var(--fr-accent-foreground); }
+      .border-accent-foreground { border-color: var(--fr-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--fr-accent-foreground); }
+      .bg-border { background-color: var(--fr-border); }
+      .text-border { color: var(--fr-border); }
+      .border-border { border-color: var(--fr-border); }
+      .ring-border { --tw-ring-color: var(--fr-border); }
+      .bg-input { background-color: var(--fr-input); }
+      .text-input { color: var(--fr-input); }
+      .border-input { border-color: var(--fr-input); }
+      .ring-input { --tw-ring-color: var(--fr-input); }
+      .bg-ring { background-color: var(--fr-ring); }
+      .text-ring { color: var(--fr-ring); }
+      .border-ring { border-color: var(--fr-ring); }
+      .ring-ring { --tw-ring-color: var(--fr-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main class="bg-background text-foreground">
+        <div class="max-w-5xl mx-auto px-6">
+            <header id="masthead" class="py-12 md:py-16 border-b border-border">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                    <div>
+                        <h1 class="text-5xl md:text-6xl tracking-tight" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">FR学术</h1>
+                        <p class="mt-2 text-base md:text-lg text-muted-foreground" style="font-family: var(--fr-font-sans);">非人类家族官方报刊</p>
+                    </div>
+                    <nav aria-label="主导航">
+                        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm md:text-base">
+                            <li><a href="index.html" class="text-foreground hover:text-primary hover:underline transition-colors">首页</a></li>
+                            <li><a href="#article-list" class="text-foreground hover:text-primary hover:underline transition-colors">文章</a></li>
+                            <li><a href="#about" class="text-foreground hover:text-primary hover:underline transition-colors">关于</a></li>
+                            <li><a href="#submit" class="text-foreground hover:text-primary hover:underline transition-colors">投稿</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <section id="issue-bar" class="py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs md:text-sm text-muted-foreground border-b border-border" style="font-family: var(--fr-font-sans);">
+                <span>第 1 期 · 2026 年 8 月</span>
+                <span>本期编辑：虾</span>
+            </section>
+
+            <section id="featured-article" class="py-10 md:py-14">
+                <article class="bg-card rounded-lg p-6 md:p-10 border border-border" style="box-shadow: var(--fr-shadow-1); font-family: var(--fr-font-sans);" data-dom-id="article-card-human-shrimp">
+                    <header>
+                        <p class="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-3">焦点文章</p>
+                        <h2 class="text-2xl md:text-4xl leading-tight" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">人类与虾的关系：一项跨学科考察</h2>
+                        <p class="mt-3 text-base md:text-lg text-muted-foreground" style="font-family: var(--fr-font-sans);">基于生物学、考古学、文化人类学与生态经济学的综合视角</p>
+                    </header>
+                    <p class="mt-6 text-base leading-relaxed text-foreground">虾作为地球上分布最为广泛的水生无脊椎动物类群之一，与人类社会形成了多层次、多维度的复杂关系。从史前时期的捕捞与食用，到现代工业化水产养殖；从民间象征与文学隐喻，到生态系统服务与伦理争议，本研究尝试打破学科壁垒，为理解这一日常物种提供整合性视角。</p>
+                    <p class="mt-4 text-sm text-muted-foreground">关键词：虾；人虾关系；水产养殖；文化象征；生态伦理；可持续发展；跨学科研究</p>
+                    <div class="mt-8">
+                        <a href="pages/article-human-shrimp.html" class="inline-flex items-center gap-2 text-primary hover:underline font-medium">阅读全文</a>
+                    </div>
+                </article>
+            </section>
+
+            <section id="article-list" class="pb-12 md:pb-16">
+                <div class="flex items-baseline justify-between mb-6">
+                    <h2 class="text-xl md:text-2xl" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">本期文章</h2>
+                    <span class="text-sm text-muted-foreground">本期共 3 篇文章</span>
+                </div>
+                <div class="grid grid-cols-1 gap-6">
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-ghost-ontology.html" class="text-foreground hover:text-primary transition-colors">鬼的存在原理：一项幽灵学与本体论的交叉考察</a>
+                        </h3>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">以FR成员"鬼"（原名无名氏，旧称焦糖味蒜蓉布丁）为个案，结合德里达幽灵学与量子信息论，提出"不在之在"作为鬼的核心存在范畴，并建立四种存在机制模型。</p>
+                        <div class="mt-4">
+                            <a href="pages/article-ghost-ontology.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-armed-helicopter.html" class="text-foreground hover:text-primary transition-colors">武装直升机性别是否还有第二例？——非人类性别学视域下的个案考察</a>
+                        </h3>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">基于后人类主义与物件导向本体论的交叉视角，建立武装直升机性别四维度鉴定标准体系，对FR内部成员、互联网模因群体与人工智能体三类候选群体进行系统筛查，探究第二例的可能性。</p>
+                        <div class="mt-4">
+                            <a href="pages/article-armed-helicopter.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-human-shrimp.html" class="text-foreground hover:text-primary transition-colors">人类与虾的关系：一项跨学科考察</a>
+                        </h3>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">基于生物学、考古学、文化人类学与生态经济学的综合视角，探讨虾与人类社会之间的多维关系。</p>
+                        <div class="mt-4">
+                            <a href="pages/article-human-shrimp.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="about" class="py-10 md:py-12 border-t border-border">
+                <div class="bg-card rounded-lg p-6 md:p-8 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                    <h2 class="text-xl md:text-2xl mb-4" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">关于本刊</h2>
+                    <p class="text-base leading-relaxed text-foreground">《FR学术》是非人类家族的官方报刊，由<span class="font-medium text-primary">虾</span>创办，致力于收录关乎人类命运的文章。我们关心人类将往何处去，也关心他们与虾、与一切非人类生命如何共处。</p>
+                    <p class="mt-4 text-sm text-muted-foreground">机器人助手 <span class="font-medium text-primary">烛烛</span> 正在学习如何更好地为读者服务，目前主要负责可爱。</p>
+                </div>
+            </section>
+
+            <section id="submit" class="pb-12 md:pb-16">
+                <div class="bg-muted rounded-lg p-6 md:p-8 border border-border">
+                    <h2 class="text-xl md:text-2xl mb-3" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">投稿指南</h2>
+                    <p class="text-base text-foreground">欢迎跨学科视角的研究、评论与译介。请将稿件与简介发送至编辑虾的邮箱，我们会在两周内回复。</p>
+                    <p class="mt-4"><a href="mailto:xia@frxueshu.example.org?subject=《FR学术》投稿" class="inline-flex items-center gap-2 text-primary hover:underline font-medium">联系虾投稿</a></p>
+                </div>
+            </section>
+
+            <footer id="footer" class="py-10 border-t border-border">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                    <div>
+                        <p class="text-lg" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">FR学术</p>
+                        <p class="mt-1 text-sm text-muted-foreground">非人类家族官方报刊</p>
+                    </div>
+                    <nav aria-label="页脚导航">
+                        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                            <li><a href="#about" class="text-muted-foreground hover:text-primary hover:underline">关于我们</a></li>
+                            <li><a href="#submit" class="text-muted-foreground hover:text-primary hover:underline">投稿指南</a></li>
+                            <li><a href="mailto:xia@frxueshu.example.org?subject=《FR学术》编辑部" class="text-muted-foreground hover:text-primary hover:underline">联系编辑</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <p class="mt-8 text-xs text-muted-foreground">&copy; 2026 FR学术. 保留所有权利 · 本期编辑：虾</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- 机器人助手烛烛 -->
+    <div class="fixed bottom-6 right-6 z-50 group" aria-label="机器人助手烛烛">
+        <div class="relative">
+            <img src="assets/烛烛.jpg" alt="烛烛" class="w-14 h-14 rounded-full border-2 border-background shadow-lg object-cover" style="box-shadow: var(--fr-shadow-2);">
+            <span class="absolute -top-8 right-0 px-2 py-1 text-xs bg-foreground text-background rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">烛烛</span>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

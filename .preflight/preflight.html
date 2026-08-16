@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preflight</title>
+    <style id="theme-vars">
+:root {
+  /* FR学术品牌色板：cream 纸色 + 深靛蓝 */
+  --fr-background: #faf8f3;
+  --fr-foreground: #1a1a1a;
+  --fr-card: #ffffff;
+  --fr-card-foreground: #1a1a1a;
+  --fr-popover: #ffffff;
+  --fr-popover-foreground: #1a1a1a;
+  --fr-primary: #1e3a5f;
+  --fr-primary-foreground: #ffffff;
+  --fr-muted: #f2efe8;
+  --fr-muted-foreground: #6b6b6b;
+  --fr-border: #e3dfd5;
+  --fr-input: #e3dfd5;
+  --fr-ring: #1e3a5f;
+
+  /* 扩展语义色 */
+  --fr-surface: #ffffff;
+  --fr-surface-2: #f5f2eb;
+  --fr-ink: #1a1a1a;
+  --fr-ink-2: #5c5c5c;
+  --fr-ink-3: #8a8a8a;
+  --fr-line: #e3dfd5;
+  --fr-accent: #c9a227;
+  --fr-accent-foreground: #1a1a1a;
+
+  /* 状态色 */
+  --fr-state-success: #2e7d32;
+  --fr-state-warning: #b26a00;
+  --fr-state-error: #c62828;
+  --fr-state-info: #1565c0;
+
+  /* 半径 */
+  --fr-radius-sm: 4px;
+  --fr-radius-md: 8px;
+  --fr-radius-lg: 16px;
+  --fr-radius-pill: 999px;
+
+  /* 阴影 */
+  --fr-shadow-1: 0 1px 2px rgba(26, 26, 26, 0.05), 0 1px 1px rgba(26, 26, 26, 0.03);
+  --fr-shadow-2: 0 8px 24px -8px rgba(26, 26, 26, 0.14);
+  --fr-shadow-3: 0 24px 60px -20px rgba(26, 26, 26, 0.24);
+
+  /* 间距 */
+  --fr-s-1: 4px;
+  --fr-s-2: 8px;
+  --fr-s-3: 12px;
+  --fr-s-4: 16px;
+  --fr-s-5: 24px;
+  --fr-s-6: 32px;
+  --fr-s-7: 48px;
+  --fr-s-8: 80px;
+  --fr-s-9: 120px;
+
+  /* 字体 */
+  --fr-font-sans: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --fr-font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', 'SimSun', Georgia, serif;
+  --fr-font-mono: 'IBM Plex Mono', 'SFMono-Regular', 'Consolas', monospace;
+}
+
+.light {
+  --fr-background: #faf8f3;
+  --fr-foreground: #1a1a1a;
+  --fr-card: #ffffff;
+  --fr-card-foreground: #1a1a1a;
+  --fr-primary: #1e3a5f;
+  --fr-primary-foreground: #ffffff;
+  --fr-muted: #f2efe8;
+  --fr-muted-foreground: #6b6b6b;
+  --fr-border: #e3dfd5;
+}
+
+.dark {
+  --fr-background: #121214;
+  --fr-foreground: #f2efe8;
+  --fr-card: #1c1c20;
+  --fr-card-foreground: #f2efe8;
+  --fr-primary: #6ba3d6;
+  --fr-primary-foreground: #121214;
+  --fr-muted: #25252b;
+  --fr-muted-foreground: #9a9a9a;
+  --fr-border: #33333a;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--fr-background);
+    --color-foreground: var(--fr-foreground);
+    --color-card: var(--fr-card);
+    --color-card-foreground: var(--fr-card-foreground);
+    --color-popover: var(--fr-popover);
+    --color-popover-foreground: var(--fr-popover-foreground);
+    --color-primary: var(--fr-primary);
+    --color-primary-foreground: var(--fr-primary-foreground);
+    --color-muted: var(--fr-muted);
+    --color-muted-foreground: var(--fr-muted-foreground);
+    --color-accent: var(--fr-accent);
+    --color-accent-foreground: var(--fr-accent-foreground);
+    --color-border: var(--fr-border);
+    --color-input: var(--fr-input);
+    --color-ring: var(--fr-ring);
+    --radius-sm: var(--fr-radius-sm);
+    --radius-md: var(--fr-radius-md);
+    --radius-lg: var(--fr-radius-lg);
+  }
+  @layer base {
+    body { background: var(--fr-background); color: var(--fr-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--fr-background); }
+      .text-background { color: var(--fr-background); }
+      .border-background { border-color: var(--fr-background); }
+      .ring-background { --tw-ring-color: var(--fr-background); }
+      .bg-foreground { background-color: var(--fr-foreground); }
+      .text-foreground { color: var(--fr-foreground); }
+      .border-foreground { border-color: var(--fr-foreground); }
+      .ring-foreground { --tw-ring-color: var(--fr-foreground); }
+      .bg-card { background-color: var(--fr-card); }
+      .text-card { color: var(--fr-card); }
+      .border-card { border-color: var(--fr-card); }
+      .ring-card { --tw-ring-color: var(--fr-card); }
+      .bg-card-foreground { background-color: var(--fr-card-foreground); }
+      .text-card-foreground { color: var(--fr-card-foreground); }
+      .border-card-foreground { border-color: var(--fr-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--fr-card-foreground); }
+      .bg-popover { background-color: var(--fr-popover); }
+      .text-popover { color: var(--fr-popover); }
+      .border-popover { border-color: var(--fr-popover); }
+      .ring-popover { --tw-ring-color: var(--fr-popover); }
+      .bg-popover-foreground { background-color: var(--fr-popover-foreground); }
+      .text-popover-foreground { color: var(--fr-popover-foreground); }
+      .border-popover-foreground { border-color: var(--fr-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--fr-popover-foreground); }
+      .bg-primary { background-color: var(--fr-primary); }
+      .text-primary { color: var(--fr-primary); }
+      .border-primary { border-color: var(--fr-primary); }
+      .ring-primary { --tw-ring-color: var(--fr-primary); }
+      .bg-primary-foreground { background-color: var(--fr-primary-foreground); }
+      .text-primary-foreground { color: var(--fr-primary-foreground); }
+      .border-primary-foreground { border-color: var(--fr-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--fr-primary-foreground); }
+      .bg-muted { background-color: var(--fr-muted); }
+      .text-muted { color: var(--fr-muted); }
+      .border-muted { border-color: var(--fr-muted); }
+      .ring-muted { --tw-ring-color: var(--fr-muted); }
+      .bg-muted-foreground { background-color: var(--fr-muted-foreground); }
+      .text-muted-foreground { color: var(--fr-muted-foreground); }
+      .border-muted-foreground { border-color: var(--fr-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--fr-muted-foreground); }
+      .bg-accent { background-color: var(--fr-accent); }
+      .text-accent { color: var(--fr-accent); }
+      .border-accent { border-color: var(--fr-accent); }
+      .ring-accent { --tw-ring-color: var(--fr-accent); }
+      .bg-accent-foreground { background-color: var(--fr-accent-foreground); }
+      .text-accent-foreground { color: var(--fr-accent-foreground); }
+      .border-accent-foreground { border-color: var(--fr-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--fr-accent-foreground); }
+      .bg-border { background-color: var(--fr-border); }
+      .text-border { color: var(--fr-border); }
+      .border-border { border-color: var(--fr-border); }
+      .ring-border { --tw-ring-color: var(--fr-border); }
+      .bg-input { background-color: var(--fr-input); }
+      .text-input { color: var(--fr-input); }
+      .border-input { border-color: var(--fr-input); }
+      .ring-input { --tw-ring-color: var(--fr-input); }
+      .bg-ring { background-color: var(--fr-ring); }
+      .text-ring { color: var(--fr-ring); }
+      .border-ring { border-color: var(--fr-ring); }
+      .ring-ring { --tw-ring-color: var(--fr-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
