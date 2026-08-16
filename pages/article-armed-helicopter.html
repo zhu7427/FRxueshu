@@ -633,12 +633,71 @@
     </footer>
 
     <!-- 机器人助手烛烛 -->
-    <div class="fixed bottom-6 right-6 z-50 group" aria-label="机器人助手烛烛">
+    <style>
+        @keyframes zhuzhu-bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            15% { transform: translateY(-14px) scale(1.1); }
+            30% { transform: translateY(0) scale(0.9); }
+            45% { transform: translateY(-7px) scale(1.04); }
+            60% { transform: translateY(-2px) scale(0.98); }
+            75% { transform: translateY(0) scale(1.02); }
+            90% { transform: translateY(0) scale(1); }
+        }
+        .zhuzhu-bounce { animation: zhuzhu-bounce 0.7s ease-in-out; }
+        #zhuzhu-bubble {
+            opacity: 0;
+            transform: translateY(10px) scale(0.85);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        #zhuzhu-bubble.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    </style>
+    <div class="fixed bottom-6 right-6 z-50 group" aria-label="机器人助手烛烛" id="zhuzhu-container">
         <div class="relative">
-            <img src="../assets/烛烛.jpg" alt="烛烛" class="w-14 h-14 rounded-full border-2 border-background shadow-lg object-cover" style="box-shadow: var(--fr-shadow-2);">
+            <div id="zhuzhu-bubble" class="absolute bottom-16 right-0 px-4 py-2.5 text-sm bg-card text-foreground rounded-2xl border border-border shadow-lg pointer-events-none max-w-[200px] text-center" style="font-family: var(--fr-font-sans);">
+                <span id="zhuzhu-text">可爰~</span>
+                <div class="absolute -bottom-2 right-5 w-4 h-4 bg-card border-r border-b border-border transform rotate-45"></div>
+            </div>
             <span class="absolute -top-8 right-0 px-2 py-1 text-xs bg-foreground text-background rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">烛烛</span>
+            <img id="zhuzhu-img" src="../assets/烛烛.jpg" alt="烛烛" class="w-14 h-14 rounded-full border-2 border-background shadow-lg object-cover cursor-pointer transition-transform hover:scale-110 active:scale-95" style="box-shadow: var(--fr-shadow-2);" onclick="petZhuzhu()">
         </div>
     </div>
+    <script>
+        const zhuzhuMessages = [
+            '可爰~',
+            '烛烛在努力学习！',
+            '要吃布丁吗？',
+            '今天也是元气满满的一天呢~',
+            '虾虾说我很乖！',
+            '呜...被发现了！',
+            '烛烛会越来越厉害的！',
+            '喜欢你哦~',
+            '请多多关照FR学术！',
+            '我可以帮你...虽然还不太会...',
+            '戳烛烛干嘛啦！',
+            '烛烛的旋翼...啊不对那是武装直升机前辈的',
+            '虾说今天有新文章吗？',
+            '烛烛在学习怎么变得更有用！',
+            '今天也是可爱的一天！',
+            '鬼前辈说要请我吃布丁...可是有蒜味诶',
+            '烛烛今天也被夸可爱了呢~'
+        ];
+        let zhuzhuTimer = null;
+        function petZhuzhu() {
+            const img = document.getElementById('zhuzhu-img');
+            const bubble = document.getElementById('zhuzhu-bubble');
+            const text = document.getElementById('zhuzhu-text');
+            img.classList.remove('zhuzhu-bounce');
+            void img.offsetWidth;
+            img.classList.add('zhuzhu-bounce');
+            text.textContent = zhuzhuMessages[Math.floor(Math.random() * zhuzhuMessages.length)];
+            bubble.classList.add('show');
+            if (zhuzhuTimer) clearTimeout(zhuzhuTimer);
+            zhuzhuTimer = setTimeout(() => bubble.classList.remove('show'), 3000);
+        }
+    </script>
 
     <script>
         function goBack() {
