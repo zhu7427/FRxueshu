@@ -178,10 +178,16 @@
 
     <header class="masthead border-b border-border">
         <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center gap-2 group">
-                <span class="text-xl font-serif font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">FR学术</span>
-                <span class="hidden sm:inline text-xs text-muted-foreground font-mono tracking-wide">FR Academic Journal</span>
-            </a>
+            <div class="flex items-center gap-3 md:gap-4">
+                <button onclick="goBack()" class="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors px-3 py-1.5 rounded-md border border-border hover:border-primary bg-card" aria-label="返回上一页">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">返回</span>
+                </button>
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <span class="text-xl font-serif font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">FR学术</span>
+                    <span class="hidden sm:inline text-xs text-muted-foreground font-mono tracking-wide">FR Academic Journal</span>
+                </a>
+            </div>
             <nav class="hidden md:flex items-center gap-8 text-sm">
                 <a href="../index.html" class="text-muted-foreground hover:text-foreground transition-colors">首页</a>
                 <a href="../index.html#article-list" class="text-primary border-b-2 border-primary pb-0.5 font-medium">文章</a>
@@ -526,6 +532,13 @@
             </ol>
         </section>
 
+        <div class="mt-12 pt-8 border-t border-border text-center">
+            <button onclick="goBack()" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors px-4 py-2 rounded-md border border-border hover:border-primary bg-card">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                返回
+            </button>
+        </div>
+
     </main>
 
     <footer class="border-t border-border bg-muted/40">
@@ -565,6 +578,15 @@
         </div>
     </div>
 
+    <script>
+        function goBack() {
+            if (window.history.length > 1 && document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = '../index.html';
+            }
+        }
+    </script>
     <script>lucide.createIcons();</script>
 </body>
 </html>
