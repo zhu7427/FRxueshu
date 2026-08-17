@@ -223,11 +223,23 @@
                 <span>本期编辑：虾</span>
             </section>
 
+            <section id="search-bar" class="py-4 border-b border-border">
+                <div class="relative max-w-md">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none"></i>
+                    <input type="text" id="article-search" placeholder="搜索文章标题、关键词、日期..." class="w-full pl-10 pr-10 py-2 text-sm bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all text-foreground" />
+                    <button id="search-clear" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground hidden" aria-label="清除搜索">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <p id="search-results-count" class="mt-2 text-xs text-muted-foreground hidden"></p>
+            </section>
+
             <section id="featured-article" class="py-10 md:py-14">
-                <article class="bg-card rounded-lg p-6 md:p-10 border border-border" style="box-shadow: var(--fr-shadow-1); font-family: var(--fr-font-sans);" data-dom-id="article-card-human-shrimp">
+                <article class="bg-card rounded-lg p-6 md:p-10 border border-border" style="box-shadow: var(--fr-shadow-1); font-family: var(--fr-font-sans);" data-dom-id="article-card-human-shrimp" data-search="人类与虾的关系 一项跨学科考察 虾 水产养殖 文化象征 生态伦理 跨学科研究 2026年8月16日 焦点文章 生物学 考古学 文化人类学 生态经济学">
                     <header>
                         <p class="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-3">焦点文章</p>
                         <h2 class="text-2xl md:text-4xl leading-tight" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">人类与虾的关系：一项跨学科考察</h2>
+                        <p class="mt-2 text-xs text-muted-foreground" style="font-family: var(--fr-font-mono);">刊登日期：2026年8月16日</p>
                         <p class="mt-3 text-base md:text-lg text-muted-foreground" style="font-family: var(--fr-font-sans);">基于生物学、考古学、文化人类学与生态经济学的综合视角</p>
                     </header>
                     <p class="mt-6 text-base leading-relaxed text-foreground">虾作为地球上分布最为广泛的水生无脊椎动物类群之一，与人类社会形成了多层次、多维度的复杂关系。从史前时期的捕捞与食用，到现代工业化水产养殖；从民间象征与文学隐喻，到生态系统服务与伦理争议，本研究尝试打破学科壁垒，为理解这一日常物种提供整合性视角。</p>
@@ -241,31 +253,64 @@
             <section id="article-list" class="pb-12 md:pb-16">
                 <div class="flex items-baseline justify-between mb-6">
                     <h2 class="text-xl md:text-2xl" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">本期文章</h2>
-                    <span class="text-sm text-muted-foreground">本期共 3 篇文章</span>
+                    <span class="text-sm text-muted-foreground">本期共 6 篇文章</span>
                 </div>
                 <div class="grid grid-cols-1 gap-6">
-                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);" data-search="休眠组织的幽灵出版 FR学术的读者存在问题与价值追问 虾 幽灵出版 读者 AI 2026年8月17日 FR 休眠 组织 出版 读者存在悖论 无名的存在主义">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-ghost-publishing.html" class="text-foreground hover:text-primary transition-colors">休眠组织的幽灵出版：FR学术的读者存在问题与价值追问</a>
+                        </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月17日</p>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">FR已休眠但虾仍以FR名义持续出版——本刊、AI助手、QQ机器人。一篇自反性文本追问：这本刊物有人看吗？AI生成的文章有一点点学术价值吗？出版行为的意义是否独立于读者存在？</p>
+                        <div class="mt-4">
+                            <a href="pages/article-ghost-publishing.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);" data-search="非人类家族FR对曹庄中学的文化影响 校园亚文化扩散 文化社会学 物质性扩散 叙事生产 事件性催化 MOSI模型 棍 二次元 巧北 垃圾桶爆炸 2026年8月17日 曹庄中学 亚文化 老油 大眼珠子">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-fr-cultural-impact.html" class="text-foreground hover:text-primary transition-colors">非人类家族（FR）对曹庄中学的文化影响：一个校园亚文化扩散的案例研究</a>
+                        </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月17日</p>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">基于FR成员口述记录与事件档案，从文化社会学视角分析FR对曹庄中学的文化扩散机制：物质性扩散（棍与二次元文化）、叙事生产（巧北世界观建构）与事件性催化（垃圾桶爆炸等），提出"微型组织—超额影响"（MOSI）模型。</p>
+                        <div class="mt-4">
+                            <a href="pages/article-fr-cultural-impact.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);" data-search="氢氧化钠溶液与铝的反应 化学动力学 垃圾桶声学事件 虾 曹庄中学 九年级四班 爆炸 NaOH Al 2026年8月17日 化学 氢气 气压 PET瓶">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-naoh-aluminum.html" class="text-foreground hover:text-primary transition-colors">氢氧化钠溶液与铝的反应：从化学动力学到垃圾桶声学事件</a>
+                        </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月17日</p>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">以FR成员"虾"在曹庄中学九年级四班教室垃圾桶中实施的"饮料瓶封装实验"为个案，从化学反应机理、热力学、密闭容器气压演化与声学效应四个维度分析由此引发的"垃圾桶声学事件"。</p>
+                        <div class="mt-4">
+                            <a href="pages/article-naoh-aluminum.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);" data-search="鬼的存在原理 幽灵学 本体论 无名氏 焦糖味蒜蓉布丁 不在之在 德里达 2026年8月16日 鬼 FR 存在 量子叠加 命名">
                         <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
                             <a href="pages/article-ghost-ontology.html" class="text-foreground hover:text-primary transition-colors">鬼的存在原理：一项幽灵学与本体论的交叉考察</a>
                         </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月16日</p>
                         <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">以FR成员"鬼"（原名无名氏，旧称焦糖味蒜蓉布丁）为个案，结合德里达幽灵学与量子信息论，提出"不在之在"作为鬼的核心存在范畴，并建立四种存在机制模型。</p>
                         <div class="mt-4">
                             <a href="pages/article-ghost-ontology.html" class="text-sm text-primary hover:underline">阅读全文</a>
                         </div>
                     </article>
-                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);" data-search="武装直升机性别是否还有第二例 非人类性别学 后人类主义 物件导向本体论 4DIC 2026年8月16日 武装直升机 性别 哈拉维 布拉伊多蒂">
                         <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
                             <a href="pages/article-armed-helicopter.html" class="text-foreground hover:text-primary transition-colors">武装直升机性别是否还有第二例？——非人类性别学视域下的个案考察</a>
                         </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月16日</p>
                         <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">基于后人类主义与物件导向本体论的交叉视角，建立武装直升机性别四维度鉴定标准体系，对FR内部成员、互联网模因群体与人工智能体三类候选群体进行系统筛查，探究第二例的可能性。</p>
                         <div class="mt-4">
                             <a href="pages/article-armed-helicopter.html" class="text-sm text-primary hover:underline">阅读全文</a>
                         </div>
                     </article>
-                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);">
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1);" data-search="人类与虾的关系 一项跨学科考察 虾 水产养殖 文化象征 生态伦理 跨学科研究 2026年8月16日 生物学 考古学 文化人类学 生态经济学">
                         <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
                             <a href="pages/article-human-shrimp.html" class="text-foreground hover:text-primary transition-colors">人类与虾的关系：一项跨学科考察</a>
                         </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月16日</p>
                         <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">基于生物学、考古学、文化人类学与生态经济学的综合视角，探讨虾与人类社会之间的多维关系。</p>
                         <div class="mt-4">
                             <a href="pages/article-human-shrimp.html" class="text-sm text-primary hover:underline">阅读全文</a>
@@ -280,13 +325,24 @@
                         <h2 class="text-xl md:text-2xl" style="font-family: var(--fr-font-serif); color: var(--fr-primary);">正经专栏</h2>
                         <p class="mt-1 text-sm text-muted-foreground">非整活向 · 认真写作 · 严肃探讨</p>
                     </div>
-                    <span class="text-sm text-muted-foreground">本栏共 1 篇文章</span>
+                    <span class="text-sm text-muted-foreground">本栏共 2 篇文章</span>
                 </div>
                 <div class="grid grid-cols-1 gap-6">
-                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1); border-left: 4px solid var(--fr-primary);">
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1); border-left: 4px solid var(--fr-primary);" data-search="虚无之中的站立 现代虚无主义浪潮中存在主义的日常实践 存在主义 萨特 海德格尔 加缪 自由 个体自我 无名的存在主义 2026年8月17日 正经专栏 虚无主义 西西弗斯">
+                        <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
+                            <a href="pages/article-existentialism-practice.html" class="text-foreground hover:text-primary transition-colors">虚无之中的站立：现代虚无主义浪潮中存在主义的日常实践</a>
+                        </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月17日</p>
+                        <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">虚无主义与存在主义不是对立的两极，而是同一意义危机的两副面孔。本文分析当代人在虚无中如何重新发现个体自我、觉醒自由并承担责任，在"做自己的事""不按剧本走""认真对待"中践行一种不自称存在主义的存在主义——"无名的存在主义"。</p>
+                        <div class="mt-4">
+                            <a href="pages/article-existentialism-practice.html" class="text-sm text-primary hover:underline">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="bg-card rounded-lg p-6 border border-border" style="box-shadow: var(--fr-shadow-1); border-left: 4px solid var(--fr-primary);" data-search="现代虚无主义者的行为图景 一种生存处境的剖析 虚无主义 尼采 消费主义 内卷 躺平 2026年8月16日 正经专栏 存在主义 加缪 弗兰克尔">
                         <h3 class="text-lg md:text-xl" style="font-family: var(--fr-font-serif);">
                             <a href="pages/article-modern-nihilism.html" class="text-foreground hover:text-primary transition-colors">现代虚无主义者的行为图景：一种生存处境的剖析</a>
                         </h3>
+                        <p class="text-xs text-muted-foreground mt-1" style="font-family: var(--fr-font-mono);">2026年8月16日</p>
                         <p class="mt-2 text-sm text-muted-foreground" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">从尼采"上帝已死"的宣告出发，剖析当代虚无主义从哲学命题向日常生存状态的转化，分析现代虚无主义者在消费、社交媒体、工作与亲密关系中的具体行为模式及其内在逻辑。</p>
                         <div class="mt-4">
                             <a href="pages/article-modern-nihilism.html" class="text-sm text-primary hover:underline">阅读全文</a>
@@ -294,6 +350,12 @@
                     </article>
                 </div>
             </section>
+
+            <div id="no-results" class="hidden text-center py-16 text-muted-foreground">
+                <i data-lucide="search-x" class="w-8 h-8 mx-auto mb-3 opacity-50"></i>
+                <p class="text-base">没有找到匹配的文章</p>
+                <p class="text-xs mt-1">试试其他关键词？</p>
+            </div>
 
             <section id="about" class="py-10 md:py-12 border-t border-border">
                 <div class="bg-card rounded-lg p-6 md:p-8 border border-border" style="box-shadow: var(--fr-shadow-1);">
@@ -380,7 +442,13 @@
             '烛烛在学习怎么变得更有用！',
             '今天也是可爱的一天！',
             '鬼前辈说要请我吃布丁...可是有蒜味诶',
-            '烛烛今天也被夸可爱了呢~'
+            '烛烛今天也被夸可爱了呢~',
+            '虾虾又搞事情了...',
+            '垃圾桶: 我是无辜的！',
+            '棍前辈好厉害！贴画到处都是！',
+            '巧北是谁呀？大家都说他很重要！',
+            '你在看吗？烛烛在看你哦！',
+            '虾虾说有人会读到这些的...吧？'
         ];
         let zhuzhuTimer = null;
         function petZhuzhu() {
@@ -397,6 +465,80 @@
         }
     </script>
 
+    <script>
+        const searchInput = document.getElementById('article-search');
+        const searchClear = document.getElementById('search-clear');
+        const noResults = document.getElementById('no-results');
+        const resultsCount = document.getElementById('search-results-count');
+        const allCards = document.querySelectorAll('[data-search]');
+        const sections = [
+            { id: 'featured-article', headerSelector: null },
+            { id: 'article-list', headerSelector: '#article-list > div.flex' },
+            { id: 'serious-column', headerSelector: '#serious-column > div.flex' }
+        ];
+
+        function performSearch(query) {
+            query = query.trim().toLowerCase();
+            let totalVisible = 0;
+
+            if (!query) {
+                allCards.forEach(card => card.style.display = '');
+                sections.forEach(s => {
+                    const el = document.getElementById(s.id);
+                    if (el) el.style.display = '';
+                    if (s.headerSelector) {
+                        const h = document.querySelector(s.headerSelector);
+                        if (h) h.style.display = '';
+                    }
+                });
+                noResults.classList.add('hidden');
+                resultsCount.classList.add('hidden');
+                searchClear.classList.add('hidden');
+                return;
+            }
+
+            searchClear.classList.remove('hidden');
+
+            allCards.forEach(card => {
+                const searchText = (card.dataset.search || '').toLowerCase();
+                if (searchText.includes(query)) {
+                    card.style.display = '';
+                    totalVisible++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            sections.forEach(s => {
+                const el = document.getElementById(s.id);
+                if (!el) return;
+                const visibleCards = el.querySelectorAll('[data-search]');
+                let hasVisible = false;
+                visibleCards.forEach(c => { if (c.style.display !== 'none') hasVisible = true; });
+                el.style.display = hasVisible ? '' : 'none';
+                if (s.headerSelector) {
+                    const h = document.querySelector(s.headerSelector);
+                    if (h) h.style.display = hasVisible ? '' : 'none';
+                }
+            });
+
+            if (totalVisible === 0) {
+                noResults.classList.remove('hidden');
+                resultsCount.classList.add('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                resultsCount.textContent = '找到 ' + totalVisible + ' 篇文章';
+                resultsCount.classList.remove('hidden');
+            }
+        }
+
+        searchInput.addEventListener('input', function(e) { performSearch(e.target.value); });
+        searchClear.addEventListener('click', function() {
+            searchInput.value = '';
+            performSearch('');
+            searchInput.focus();
+        });
+    </script>
     <script>lucide.createIcons();</script>
 </body>
 </html>
